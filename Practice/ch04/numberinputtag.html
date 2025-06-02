@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <!-- form 태그를 왜 쓸까요?
+      데이터를 백엔드에 전달하려고 -->
+    <h1>숫자 관련 인풋 타입</h1>
+    <form action="#">
+      <div>
+        <label>
+          number:
+          <input type="number" name="age" min="0" max="200" />
+        </label>
+      </div>
+      
+      <div>
+        <label>
+          range:
+          <input type="range" name="price" min="20" max="80" step="1" />
+          <span id="range_display">50</span>
+        </label>
+      </div>
+
+      <div>
+        <label>
+          date:
+          <input type="date" name="birth_date" />
+          <!--value="2020-10-10" 을 넣으면 기본값 설정 가능 -->
+        </label>
+      </div>
+
+      <div>
+        <!-- '20205-10-10T14:12:12' -->
+        <label>
+          datetime:
+          <input type="datetime-local" name="birth_datetime" />
+          <!--value="2020-10-10" 을 넣으면 기본값 설정 가능 -->
+        </label>
+      </div>
+
+      <div>
+        <label>
+          time:
+          <input type="time" name="birth_time" />
+        </label>
+      </div>
+
+      <div>
+        <label>
+          week:
+          <input type="week" name="birth_week" />
+        </label>
+      </div>
+
+      <div>
+        <label>
+          <input type="submit" value="확인" />
+        </label>
+      </div>
+    </form>
+    <script>
+      const $range = document.querySelector('input[type="range"]');
+      const $rangeDisplay = document.querySelector("#range_display");
+      $rangeDisplay.innerText = $range.value;
+
+      // 예약일을 지정한다고 할때 내일부터만 선택가능하게 만들 때
+      const $date = document.querySelector(
+        'input[type="date"][name="birth_date"]'
+      ); // css선택자 공부
+
+      const $datetime = document.querySelector('input[type="datetime-local"]');
+      $datetime.value = "20205-10-10T14:12:12";
+
+      const tomorrow = new Date();
+      tomorrow.setDate(tomorrow.getDate() + 1);
+      //const tomorrow = new Date(today.getDate() + 1);
+      const year = tomorrow.getFullYear();
+      const mon = String(tomorrow.getMonth() + 1).padStart(2, "0"); // 달은 0부터 시작하기 때문에 1월 = 0월이 됨 그래서 +1 을 한다
+      const day = String(tomorrow.getDate()).padStart(2, "0");
+      const nowDate = `${year}-${mon}-${day}`;
+      $date.value = nowDate;
+      $date.setAttribute("min", nowDate); // setAtrribute 지정된 요소의 속성 값을 설정합니다.
+      console.log("nowDate:", nowDate);
+      //여기까지
+
+      $range.addEventListener("mousemove", function (e) {
+        $rangeDisplay.innerText = e.target.value;
+      });
+    </script>
+  </body>
+</html>

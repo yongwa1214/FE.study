@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>formtag</title>
-</head>
-<body>
-  <!-- 
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>formtag</title>
+  </head>
+  <body>
+    <!-- 
     form 태그는 사용자가 작성한 데이터를 백엔드로 보낼 때 사용 
     action: 목적지(URL)
     method(보내는 방법): get방식, post방식 
@@ -20,29 +20,30 @@
 
     쿼리스트링: url?key1=value1&key2=value2
               url 빈칸만들면 안됨 빈칸도 문자다 
-               ?시작, 속성명=속성값으로 구성 속성끼리 구분은 &로 한다 
+              ?시작, 속성명=속성값으로 구성 속성끼리 구분은 &로 한다 
+              키는 프론트랑 백엔드랑 서로 약속한 값으로 구성해야한다 
 
     post방식은 언제쓰나요
     - 대용량 데이터를 보낼때 
     - 비밀번호
     - 회원가입
-   -->
-   <h1>formtag</h1>
-  <form action=".01-result.html" method="post">
-    <label for="name">이름</label>
-    <input type="text" id="name" name="my-name" value= "청명"/>
-    <!-- name값이 key명 value가 속성값 -->
-    <br><br>
-    <label for="age">나이</label>
-    <input type="number" id="age" name="my-age"/>
-    <br><br>
-    <label>비밀번호
-    <input type="password" name="pw">
-    </label>
-    <br><br>
-    <input type="submit" value="제출"/>
-    <input type="reset" value="초기화"/>
-  </form>
-  
-</body>
+    -->
+    <h1>formtag</h1>
+    <form action=".01-result.html" method="post">
+      <label for="name">이름</label>
+      <input type="text" id="name" name="my-name" value="청명" />
+      <!-- name값이 key명 value가 속성값 -->
+      <br /><br />
+      <label for="age">나이</label>
+      <input type="number" id="age" name="my-age" />
+      <br /><br />
+      <label
+        >비밀번호
+        <input type="password" name="pw" />
+      </label>
+      <br /><br />
+      <input type="submit" value="제출" />
+      <input type="reset" value="초기화" />
+    </form>
+  </body>
 </html>

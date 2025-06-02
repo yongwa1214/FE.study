@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>기타 인풋 타입</h1>
+    <form action="#">
+      <div>
+        <label
+          >one-file:
+          <input type="file" />
+        </label>
+      </div>
+      <div>
+        <label
+          >one-file(이미지):
+          <input type="file" accept="image/*" multiple />
+          <!-- accept = "image/*  >> 이미지파일만 선택 가능하게 만들어줌 " -->
+          <!-- multiple 다중선택 가능 -->
+        </label>
+        <div>
+          <label
+            >one-file(엑셀):
+            <input
+              type="file"
+              accept=".xls,.xlsx,image/*"
+              <!--
+              accept="image/*  >> 이미지파일만 선택 가능하게 만들어줌 "
+              --
+            />
+          </label>
+        </div>
+        <div><input type="hidden" name="name" value="홍길동" /></div>
+        <!-- hidden은 몰라도 됨 이제는 잘 안씀  -->
+        <div>
+          <label>M: <input type="tel" name="phone" /></label>
+        </div>
+        <div>
+          <label>
+            email:
+            <input
+              type="email"
+              name="email"
+              minlength="8"
+              maxlength="16"
+              readonly
+          /></label>
+        </div>
+        <!-- readonly 데이터가 날아가긴함 빈칸으로 -->
+        <div>
+          <label>
+            email:
+            <input
+              type="email"
+              name="email"
+              minlength="8"
+              maxlength="16"
+              disabled
+          /></label>
+        </div>
+        <!-- disabled 비활성화. 값 자체가 안 날아감 -->
+        <div>
+          <input type="submit" value="전송" />
+        </div>
+      </div>
+    </form>
+  </body>
+</html>

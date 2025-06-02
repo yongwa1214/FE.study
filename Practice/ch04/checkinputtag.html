@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=h1, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>체크 관련 인풋 타입</h1>
+    <!-- 웬만하면 post 방식으로 전송 -->
+    <!-- 체크박스는 보통 배열로 받는다 (변수로도 받을 수 있음 단 name이 달라야함) -->
+    <!-- 같은 이름은 보통 배열로 받음  -->
+    <form action="#">
+      <div>
+        <label>
+          <input type="checkbox" name="typ" value="1" checked/>
+          유기농
+        </label>
+      </div>
+      <div>
+        <label>
+          <input type="checkbox" name="typ" value="2" />
+          무농약
+        </label>
+      </div>
+      <div>
+        <input type="submit" value="전송">
+      </div>
+
+      <h2>radio</h2>
+      <!-- radio는 name이 중요하다 같은 name은 그룹으로 묶인다(단 하나만 선택가능) -->
+      <div>
+        <label>
+          <input type="radio" name="fruit" value="apple" checked>사과
+        </label>
+        <label>
+          <input type="radio" name="fruit" value="grape">포도
+        </label> 
+        <label>
+          <input type="radio" name="fruit" value="orange">오렌지
+        </label>
+      </div>
+      <div>
+        <label>
+          <input type="radio" name="vge" value="v_carrot">당근
+        </label>
+        <label>
+          <input type="radio" name="vge" value="v_tomato">토마토
+        </label>
+        <label>
+          <input type="radio" name="vge" value="v_eggplant">가지
+        </label>
+      </div>
+    </form>
+  </body>
+</html>
