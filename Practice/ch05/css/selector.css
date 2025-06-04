@@ -1,0 +1,29 @@
+
+span{
+  color: plum;
+}
+
+span{
+  color: #ff6a82;
+}
+
+div{
+  color: olivedrab;
+}
+#red {
+  color: red;
+}
+
+div.blue{
+  color: #d18f00;
+}
+div.blue.dark{
+  color:rgb(51, 161, 0)
+}
+.blue.dark{
+  color: rgb(89, 175, 255) 
+}
+
+.blue{
+  color:slateblue;
+}
