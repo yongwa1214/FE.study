@@ -1,0 +1,34 @@
+span {
+  background-color: rgb(23, 189, 106);
+  color:#fff;
+  margin: 10px;
+}
+
+.container {
+  background-color: #fff;
+}
+
+.container div{
+  background-color: rgb(255, 222, 152);
+  display: inline;
+}
+
+.container div:first-of-type{
+  color: blue;
+}
+
+/* .container :nth-child(2){
+  color: blue;
+} */
+
+
+.container :first-child{
+  background-color: aquamarine;
+  color: #3434d3;
+}
+
+.inline_block{
+  display: inline-block;
+  width: 200px;
+  height: 200px;
+}

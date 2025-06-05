@@ -1,0 +1,13 @@
+ul > li {
+  display: inline-block;
+  background-color: antiquewhite;
+  margin-right: 2em;
+}
+
+ul{
+  background-color: blue;
+}
+
+.case02 :last-child{
+  margin-right: 0;
+}

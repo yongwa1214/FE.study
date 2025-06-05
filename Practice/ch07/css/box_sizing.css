@@ -1,0 +1,25 @@
+.container01 {
+  
+  background-color: antiquewhite;
+}
+.container01 > div , .container02 > div {
+  /* 여기서 주는 width와 height는 content box에 주는 값이다  */
+  width: 100px;
+  height: 100px;
+  padding: 40px;
+  border: 1px solid #000;
+  text-align: center;
+  line-height: 100px;
+  
+}
+
+.container02 > div {
+  box-sizing: border-box; /*default는 content box다 */
+  line-height: 100%;
+}
+
+
+.container02{
+  background-color: cadetblue;
+  margin-top: 2rem;
+}

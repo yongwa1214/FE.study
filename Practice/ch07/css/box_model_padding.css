@@ -1,0 +1,19 @@
+span {
+  background-color: rgb(26, 180, 6);
+  color: #fff;
+  display: inline-block;
+}
+
+.container {
+  background-color: #fff;
+}
+
+.container div {
+  background-color: rgb(255, 175, 70);
+
+}
+
+span, .container div {
+  padding: 20px;
+}
+
