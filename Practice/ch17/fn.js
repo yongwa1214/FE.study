@@ -12,6 +12,8 @@ function sum(n1, n2){
   console.log(`${n1} + ${n2} = ${n1+n2}`);
 }
 
+console.log('void함수: ', sum(10,20));
+
 sum(1,2);
 
 const copySum = sum;
