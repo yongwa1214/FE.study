@@ -2,19 +2,24 @@
   color: olivedrab;
 }
 
-.outer > li{
-  color: dodgerblue;}
+.outer > li {
+  color: dodgerblue;
+}
 
 /* .outer > li  li {
   color: olivedrab
 } */
 
-.outer > li  li {
+.outer > li li {
   text-decoration: underline;
 }
 
+.starter ~ li {
+  font-style: italic;
+}
+
 /* not 가상 선택자 */
-.outer > :not(:last-child){
+.outer > :not(:last-child) {
   background-color: beige;
 }
 
@@ -29,16 +34,25 @@ ol:nth-child(3) {
 }
 
 /* ol :nth-child(even){어쩌구} 
-even에 사칙연산 가능*/
-ol :nth-child(2n) {background-color: beige;}
+even에 사칙연산 가능
+even 은 짝수 라는 뜻 짝수번째 다 */
+/* 2n+1는 odd와 똑같음  
+ol: nth-child(2n+1)*/
+
+ol :nth-child(2n) {
+  background-color: beige;
+}
+/* odd는 홀수 갯수 제한 없음 모든 홀수 */
 ol :nth-child(odd) {
-  background-color:rgb(67, 141, 116);
-  color: aliceblue;}
+  background-color: rgb(67, 141, 116);
+  color: aliceblue;
+}
 
 .starter ~ li {
   font-style: italic;
 }
 
-ol :first-child, ol :last-child {
-  color:rgb(255, 193, 117);
+ol :first-child,
+ol :last-child {
+  color: rgb(255, 193, 117);
 }

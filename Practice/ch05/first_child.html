@@ -7,8 +7,11 @@
   <title>Document</title>
   <style>
     .parent span:first-child{ background-color: lightgreen;}
+    /* ↑ 얘는 바로 첫째 아이만 고름  */
     /*.parent p:first-child{ background-color: lightblue;} << 작동 안함*/
     .parent p:first-of-type{ background-color: lightblue;} 
+    /* 태그별 첫번째 아이 
+    그런데 p를 골랐으니 p태그만 선택하겠다는 뜻  */
     .parent2 :first-of-type{ background-color: lightblue;} 
   </style>
 </head>
@@ -27,6 +30,8 @@
 <div class="parent2">
     <span class="box box1">span</span>
     <p class="box box1">p</p>
+    <div>1</div>
+    <div>2</div>
     <span class="box box1">span</span>
     <p class="box box1">p</p>
     <span class="box box1">span</span>

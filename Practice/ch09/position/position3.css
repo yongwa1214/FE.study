@@ -1,0 +1,61 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+header {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: 10;
+  display: flex;
+  justify-content: center;
+  /* align-items: 세로 정렬 */
+  align-items: center;
+  height: 60px;
+  color: #fff;
+  background-color: gray;
+}
+
+header h1 {
+  font-size: 1.7em;
+}
+
+main {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  height: 300vh;
+  margin-top: 64px;
+  background-color: blue;
+}
+
+.one {
+  width: 60%;
+  height: 100vh;
+}
+
+.one > img {
+  display: block;
+  width: 100%;
+}
+
+.two {
+  position: sticky;
+  top: 0;
+  width: 40%;
+  height: 50vh;
+  padding: 70px 0 0 12px;
+  overflow: auto;
+  text-align: center;
+  background-color: #b9d5ff;
+}
+
+.three {
+  position: sticky;
+  top:0;
+  padding-top:70px;
+  background-color: #b9d5ff;
+  height: 150px;
+}
