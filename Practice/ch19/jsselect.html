@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
+    <link rel="stylesheet" href="./jsselect.css" />
   </head>
   <body>
     <h1>장보기 목록</h1>
@@ -16,7 +17,7 @@
         <li class="soldout">양파</li>
       </ul>
     </section>
-    <section id=" sweets" class="plant">
+    <section id="sweets" class="plant">
       <h2>과일</h2>
       <ul>
         <li>사과</li>
@@ -29,8 +30,39 @@
       <ul>
         <li class="soldout">소고기</li>
         <li>돼지고기</li>
-        <li>닭고기</li>
+        <li class="soldout">닭고기</li>
       </ul>
     </section>
+    <script>
+      const $section = document.querySelector("section"); //qS - 여러개 있어도 제일 첫번째만 줌
+      console.log($section);
+
+      // element.children :element의 자식을 가져옴
+      // .children 은 속성 (저장 역할을 함 )
+      const firstSectionChildren = $section.children;
+      //console.log('firstSectionChildren: ', firstSectionChildren);
+      const $parentSection = firstSectionChildren[0].parentElement;
+      //console.log($parentSection);
+
+      console.log('비교: ', $section === $parentSection);
+
+      const $sectionList = document.querySelectorAll("section"); // qSA - 있는거 다줌
+      //console.log($sectionList);
+
+      const $section2 = document.querySelector("#sweets");
+      //console.log($section2);
+
+      const $all_li = document.querySelectorAll("li");
+      //console.log($all_li);
+
+      const $all_plant = document.querySelectorAll(".plant");
+      //console.log($all_plant);
+
+      const $all_soldout = document.querySelectorAll('.plant > ul > .soldout')
+      //console.log($all_soldout);
+
+      const $sweets_li2 = document.querySelector('#sweets ul > :nth-child(2)')
+      //console.log($sweets_li2);
+    </script>
   </body>
 </html>

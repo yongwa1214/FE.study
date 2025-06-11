@@ -1,0 +1,46 @@
+body {
+  padding: 16px 32px;
+}
+
+img{
+  width: 100vh;
+  
+}
+section {
+  margin: 12px 0;
+  padding: 50px;
+  background-color: bisque;
+  border-radius: 12px;
+}
+section.plant {
+  background-color: lightgreen;
+}
+
+.hidden{
+  display: none;
+}
+
+ul {
+  position: relative;
+}
+.soldout{
+  display: block;
+}
+.soldout::before {
+  display:block;
+  position: absolute;
+  content: "Sold out";
+  left: -12px;
+  background-color: rgb(242, 84, 84);
+  font-weight: bold;
+  font-size: .5em;
+  margin: 3px;
+  padding: 3px;
+  color: #fff;
+}
+
+.organic::after{
+  width: 100px;
+  height: 50px;
+  background-image: url('./그림1.png');
+}

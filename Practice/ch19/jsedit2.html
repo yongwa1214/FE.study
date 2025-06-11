@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>jsedit2.html</h1>
+    <a href="https://www.naver.com" target="_blank" kkk="www">
+      웹 사이트 바로가기</a
+    >
+    <br />
+    <input type="text" name="message" value="Hello World!" />
+    <br />
+    <input type="checkbox" id="checkbox" name="toggle" checked/>
+    <label for="checkbox">체크박스</label>
+
+    <script>
+      const $hyperLink = document.querySelector("a");
+      console.log("$hyperLink", $hyperLink.href);
+      console.log(
+        '$hyperLink.getAttribute("href")',
+        $hyperLink.getAttribute("href")
+      );
+      // getAttribute는 모든 속성을 다 가져올 수 있다.
+      // .으로는 사용자가 추가한 속성은 못 가져옴
+
+      console.log("$hyperLink", $hyperLink.kkk);
+      console.log(
+        '$hyperLink.getAttribute("kkk")',
+        $hyperLink.getAttribute("kkk")
+      );
+
+      $hyperLink.setAttribute("href", "https://www.yalco.kr");
+
+      const $message = document.querySelector('input[type="text"][name="message"]');
+      console.log($message);
+      console.log('$message.value:', $message.value);
+      console.log('$message.getAttribute("value"):', $message.getAttribute)
+
+      $message.value = 'ハローワールド！';
+
+      $checkbox = document.querySelector('#checkbox');
+      console.log('$checkbox.checked:', $checkbox.checked)
+      $checkbox.checked = false;
+    </script>
+  </body>
+</html>
