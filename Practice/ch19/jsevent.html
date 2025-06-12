@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    body{
+      padding: 16px 32px;
+      font-size: 1.2em;
+    }
+    button, input[type=text]{
+      padding: 0.5em 1em;
+      font-size: 1.2em;
+    
+    }
+    #click_position{
+      display: inline-block;
+      margin: 24px 0;
+      width: 400px; 
+      height: 240px;
+      background-color:lightblue;
+      line-height: 240px;
+      text-align:center;
+    }
+  </style>
+</head>
+<body>
+  <h1>jsevent.html</h1>
+  <button id = "my_button">이벤트를 부여하세요.</button>
+  <br>
+  <div id="click_position">클릭 전</div>
+  <br>
+  <div id="view"></div>
+  <input type="text" id="my_input">
+
+  <script>
+    const $myButton = document.querySelector('#my_button');
+    function clickBtn(){
+      // 호출되었을 때 하고 싶은 작업을 작성
+      console.log('버튼 클릭!!!')
+
+    }
+
+    //(1) '문자열-이벤트 이름'
+    //(2) 콜백함수>> 함수의 주소값을 보낸다
+    $myButton.addEventListener('click', clickBtn
+
+    );
+
+    // 익명함수 쓰는 케이스가 더 많음 
+    $myButton.addEventListener('mouseenter', function() {
+      console.log('진입');
+    })
+
+    // 화살표 함수(화살표 함수는 원래 익명 함수)
+    $myButton.addEventListener('mouseleave',() => {
+      console.log('이탈');
+    });
+
+    // 클릭 전 div 선택
+    const $clickPostion = document.querySelector('#click_position');
+    // Arrow Function 생략가능: 중괄호(실행문 하나), 소괄호(매개변수 하나), 리턴(중괄호 없었을때 생략가능) 
+    $clickPostion.addEventListener('click', e => {  // js에서 인자하나(이벤트 객체)를 무조건 보내줌 받고 싶으면 받아면 됨 
+      const text = `x: ${e.clientX}, y: ${e.clientY}`;
+      e.target.textContent = text;
+      console.log(e.target);
+      //e.target은 이벤트가 발생한 위치를 말함 여기서는 clickPositon을 말함 
+    });
+
+    // input[type="text"]선택
+    const $myInput = document.querySelector('#my_input');
+    $myInput.addEventListener('focus', e => {
+      e.target.setAttribute('placeHolder','포커스된 상태');
+    });
+
+    $myInput.addEventListener('blur', e => {
+      e.target.setAttribute('placeHolder','');
+    });
+
+
+    //change: 값에 변화가 생길 시 발생하는 이벤트
+    //        텍스트 입력 요소인 경우에는 포커스를 벗어날 때 이벤트 발생 
+    // keyup: 키보드 키를 놓을 때 이벤트 발생
+    const $view= document.querySelector('#view');
+    $myInput.addEventListener('keyup' , e => {
+      $view.textContent = e.target.value;
+    });
+
+  </script>
+</body>
+</html>
