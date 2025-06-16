@@ -112,7 +112,6 @@ $aboutDiv.innerHTML = htmlTag;
 const $currLiList = document.querySelectorAll('#curriculum .curriculum__list > li');
 const $currProgBar = document.querySelector('#curriculum .curriculum__progress .bar');
 
-console.log($currLiList)
 
 $currLiList.forEach((item, idx) => {
 
@@ -120,6 +119,59 @@ $currLiList.forEach((item, idx) => {
   item.addEventListener('mouseleave', () => $currProgBar.style.width = 0);
 });
 
+const $contactTabs = document.querySelectorAll('#contact input[name="contact"]');
+const $contactSlideCon = document.querySelector('#contact .contact__slide-con');
+
+
+$contactTabs.forEach((item, idx) => {
+  //[idx]가 0 이면 0번방 내용 즉0이 들어가고 1이면 1번방인 -100vw가 들어간다 
+  const marginLeft = [0, '-100vw'][idx];
+
+    // 위 내용은 아래와 같음
+  // let marginLeft2;
+  // if(idx === 0){
+  //   marginLeft2 = 0;
+  // } else if(idx === 1) {
+  //   marginLeft2 = '100vw'
+  // }
+  item.addEventListener('click', () => {
+    $contactSlideCon.style.marginLeft = marginLeft;
+  });
+});
+
+const $menuBtn = document.querySelector('header.header button.header__menu-btn');
+const $headerNav = document.querySelector('header.header nav.header__nav');
+console.log($headerNav)
+
+$menuBtn.addEventListener('click', e =>{
+  e.target.classList.toggle('on');
+  $headerNav.classList.toggle('active');
+
+  e.stopPropagation(); // 버블링 중지 
+  /* 버블링 현상
+    자식 요소에 이벤트가 발생되면, 그 요소의 부모 요소의 이벤트도 같이 발생되는 이벤트 전파현상 
+    일단 올라감 근데 부모 요소에 이벤트가 없으면 아무 일도 일어나지 않긴함 
+    
+    캡쳐링은 반대 
+  */
+});
+
+/*
+let navBtn = false;
+
+$menuBtn.addEventListener("click", () => {
+  navBtn = !navBtn; // 토글작업
+  $menuBtn.className = navBtn ? "header__menu-btn on" : "header__menu-btn";
+  $headerNav.className = navBtn ? "header__nav active" : "header__nav"
+
+})
+*/
+
+const $body = document.querySelector('body');
+$body.addEventListener('click', () => {
+  $menuBtn.classList.remove('on');
+  $headerNav.classList.remove('active');
+})
 
 
 

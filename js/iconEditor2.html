@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    table {
+      border-collapse: collapse; 
+      margin-top: 5px;
+    }
+    td {
+      width: 15px;
+      height: 15px;
+      border: 1px solid gray;
+    
+    }
+  </style>
+  <title>Document</title>
+</head>
+
+<body>
+  <h1>ICON EDITOR</h1>
+  <div id="editor"></div>
+
+  <script>
+    function makeElement(name, attributes) {
+      const node = document.createElement(name);
+
+      if (attributes) {
+        for (const item in attributes) {
+          //hOP : 네가 가진 원래값(상속안받고 고유한거)
+          if (attributes.hasOwnProperty(item)) { // hOP를 만족하면 사용하겠다
+            node.setAttribute(item, attributes[item]);
+          }
+        }
+      }
+      return node;
+    }
+
+    function createIconEditor(target, nx, ny) {
+      console.log('createIconEditor 호출! :', target, nx, ny);
+      const $inputColor = makeElement('input', { type: 'color' });
+      target.appendChild($inputColor);
+
+      const $inputButtonClear = makeElement('input', { type: 'button', value: '전체삭제' });
+      target.appendChild($inputButtonClear);
+      
+
+      const $table = makeElement('table');
+      target.appendChild($table);
+
+      $inputButtonClear.addEventListener('click', () => {
+          for(const $tr of $table.children){
+            for(const $td of $tr.children){
+              $td.style.backgroundColor = null;
+            }
+          }
+      });
+
+      
+      for(let y =0; y <ny; y++){// 줄담당
+        const $tr = makeElement('tr')
+        $table.appendChild($tr);
+
+        let on = false; 
+            
+        
+        for(let x = 0; x <nx; x++ ){
+          const $td = makeElement('td')
+          $tr.appendChild($td); // 칸 담당
+          $td.addEventListener('click', ()=>{
+            
+            $td.style.backgroundColor = $inputColor.value;
+           
+          });
+
+        }
+      }
+      
+    }
+
+    window.addEventListener('load', () => {
+      const target = document.querySelector('#editor');
+      createIconEditor(target, 30, 30);
+    });
+
+    
+
+  </script>
+</body>
+
+</html>
