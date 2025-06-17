@@ -7,14 +7,15 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
     table {
-      border-collapse: collapse; 
+      border-collapse: collapse;
       margin-top: 5px;
     }
+
     td {
-      width: 15px;
-      height: 15px;
+      width: 10px;
+      height: 10px;
       border: 1px solid gray;
-    
+
     }
   </style>
   <title>Document</title>
@@ -46,39 +47,39 @@
 
       const $inputButtonClear = makeElement('input', { type: 'button', value: '전체삭제' });
       target.appendChild($inputButtonClear);
-      
+
 
       const $table = makeElement('table');
       target.appendChild($table);
 
       $inputButtonClear.addEventListener('click', () => {
-          for(const $tr of $table.children){
-            for(const $td of $tr.children){
-              $td.style.backgroundColor = null;
-            }
+        for (const $tr of $table.children) {
+          for (const $td of $tr.children) {
+            $td.style.backgroundColor = null;
           }
+        }
       });
 
-      
-      for(let y =0; y <ny; y++){// 줄담당
+
+      for (let y = 0; y < ny; y++) {// 줄담당
         const $tr = makeElement('tr')
         $table.appendChild($tr);
 
-        let on = false; 
-            
-        
-        for(let x = 0; x <nx; x++ ){
+        let on = false;
+
+
+        for (let x = 0; x < nx; x++) {
           const $td = makeElement('td')
           $tr.appendChild($td); // 칸 담당
-          $td.addEventListener('click', ()=>{
-            
-            $td.style.backgroundColor = $inputColor.value;
-           
+          $td.addEventListener('mouseenter', () => {
+
+            $td.style.backgroundColor = !$td.style.backgroundColor ? $inputColor.value:'';
+
           });
 
         }
       }
-      
+
     }
 
     window.addEventListener('load', () => {
@@ -86,7 +87,7 @@
       createIconEditor(target, 30, 30);
     });
 
-    
+
 
   </script>
 </body>

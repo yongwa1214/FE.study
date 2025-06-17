@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  <title>Document</title>
+  <style>
+    img{
+      width: 50%
+    }
+    .image{
+      font-size: 2rem;
+      margin-bottom: 3rem;
+    }
+  </style>
+</head>
+
+<body>
+  <h1>ajax.html</h1>
+  <div id="container"></div>
+
+  <script>
+    // javascript 자체적으로 제공해주는 통신 객체가 있는데 
+    // XMLHttpRequest, Fetch 가 있으나 사용하지 않는다.
+    // Axios 라이브러리 사용 
+
+    const $container = document.querySelector('#container');
+    let page = 1;
+
+    function getData () {
+      axios
+      .get(`https://picsum.photos/v2/list?page=${page++}&limit=10`)
+      .then(response => makeItems(response.data));
+    }
+    
+    getData();
+    
+  
+
+    function makeItems(data) {
+      data.forEach(item => {
+        const ele = makeItem(item);
+
+        $container.appendChild(ele);
+      });
+    }
+
+    function makeItem(item){
+      const div = document.createElement('div');
+      const num = 4
+      const halfWidth = Math.floor(item.width /num);
+      const halfHeight = Math.floor(item.height /num);
+      const src = `https://picsum.photos/id/${item.id}/${halfWidth}/${halfHeight}`
+      div.innerHTML = `
+          <div class = "image">
+            <img src="${src}" alt ="${item.author}가 찍은 사진">
+            <div>작가: ${item.author}</div>
+          </div>
+      
+      `;
+      return div;
+    }
+  </script>
+</body>
+
+</html>
